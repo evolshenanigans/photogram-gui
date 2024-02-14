@@ -44,15 +44,33 @@ class PhotosController < ApplicationController
     matching_photos = Photo.where({ :id => the_id })
     the_photo = matching_photos.first
 
-  input_image = params.fetch("the_image")
-  input_caption = params.fetch("the_caption")
-  the_photo.image = input_image
-  the_photo.caption = input_caption
-  the_photo.save
+    input_image = params.fetch("the_image")
+    input_caption = params.fetch("the_caption")
+    the_photo.image = input_image
+    the_photo.caption = input_caption
+    the_photo.save
 
 
     redirect_to("/photos/" + the_photo.id.to_s)
 
+  end
+  def createComment
+    #Parameters: {"the_photo_id"=>"777", "the_author_id"=>"98", "the_comment"=>"test"}
+
+    matching_comments = Comment.all
+    @ordered_comments = matching_comments.order({ :created_at => :desc})
+    the_photo_id = params.fetch("the_photo_id")
+    the_author_id = params.fetch("the_author_id")
+    the_comment = params.fetch("the_comment")
+
+    c = Comment.new
+    c.photo_id = the_photo_id
+    c.author_id = the_author_id
+    c.body = the_comment
+    c.save
+    
+    redirect_to("/photos/")
+    # render({:template => "photo_templates/createComment"})
   end
 
 

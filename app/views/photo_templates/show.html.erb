@@ -18,9 +18,9 @@
     <form action="/update_photo/<%= @the_photo.id %>">
       <label for="browser_image">Image</label>
       <input type="text" id="browser_image" name="the_image" placeholder="Enter a URL for the image..." value="<%= @the_photo.image %>">
-      <label for="browser_caption">caption</label>
-      <textarea name="the_caption" id="browswer_caption" placeholder="Enter a caption for the photo..." ><%= @the_photo.caption%></textarea>
-      <button>Update Photo</button>
+      <label for="browser_caption">Caption</label>
+      <textarea name="the_caption" id="browser_caption" placeholder="Enter a caption for the photo..." ><%= @the_photo.caption%></textarea>
+      <button>Update photo</button>
     </form>
   </dd>
   <dt>Delete photo</dt>
@@ -36,6 +36,7 @@
     <th>
       Commenter
     </th>
+    
 
     <th>
       Comment
@@ -61,103 +62,17 @@
       </td>
     </tr>
 <% end %>
-    <tr>
-      <td>
-        roscoe
-      </td>
 
-      <td>
-        Only the educated are free.
-      </td>
-
-      <td>
-        2019-03-30 04:08:46 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        trey
-      </td>
-
-      <td>
-        Know how to listen, and you will profit even from those who talk badly.
-      </td>
-
-      <td>
-        2019-03-27 19:51:24 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        anisa
-      </td>
-
-      <td>
-        The mind is not a vessel to be filled but a fire to be kindled.
-      </td>
-
-      <td>
-        2019-03-21 23:42:12 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        rosaria
-      </td>
-
-      <td>
-        Philosophy is the highest music.
-      </td>
-
-      <td>
-        2019-03-21 12:41:05 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        tyree
-      </td>
-
-      <td>
-        The virtue of justice consists in moderation, as regulated by wisdom.
-      </td>
-
-      <td>
-        2019-03-13 10:30:44 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        anisa
-      </td>
-
-      <td>
-        The unexamined life is not worth living.
-      </td>
-
-      <td>
-        2019-03-11 11:09:22 UTC
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        roselee
-      </td>
-
-      <td>
-        The virtue of justice consists in moderation, as regulated by wisdom.
-      </td>
-
-      <td>
-        2019-03-07 01:33:36 UTC
-      </td>
-    </tr>
 </table>
 
 <h3>Add a new comment</h3>
+<form action="/insert_comment_record">
+  
+    <label for="photo_id_field">Photo ID</label>
+    <input id="photo_id_field" type="text" name="the_photo_id" value="<%= @the_photo.id %>">
+    <label for="author_id_field">Author ID</label>
+    <input type="text" id="author_id_field" name="the_author_id" placeholder="Enter your author ID">
+    <label for="comment_field">Comment</label>
+    <textarea id="comment_field" name="the_comment" placeholder="Enter a comment..."></textarea>
+  <button type="submit">Add comment</button>
+</form>
